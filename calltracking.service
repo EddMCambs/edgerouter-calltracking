@@ -1,0 +1,13 @@
+[Unit]
+Description=Track user on-call status
+
+[Service]
+ExecStart=/config/scripts/calltracking.sh
+Restart=always
+RestartSec=1s
+DynamicUser=yes
+Environment=HOME=/config/scripts
+EnvironmentFile=/config/scripts/calltracking.conf
+
+[Install]
+WantedBy=multi-user.target
